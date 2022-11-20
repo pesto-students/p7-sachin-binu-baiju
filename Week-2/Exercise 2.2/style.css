@@ -1,0 +1,92 @@
+.main-div {
+    width: 200px;
+    height: 200px;
+    /* background-color: aqua; */
+    /* transition-property: transform,background-color;
+    transition-duration: 4s; */
+    /* transition-delay: 3s; */
+    margin: auto;
+    margin-top: 200px;
+    position: relative;
+    
+}
+.text {
+    position: absolute;
+    top:40%;
+    left: 47%;
+    text-align: center;
+    
+}
+.subdiv1{
+    transition-property: transform,background-color;
+    transition-duration: 2s;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    /* margin: 10px; */
+    float: left;
+    transition-timing-function:ease;
+    transform-origin: top left;  
+    transform: rotate(0deg) ; 
+}
+.subdiv2{
+    transition-property: transform,background-color;
+    transition-duration: 2s;
+    background-color: blue;
+    width: 100px;
+    height: 100px;
+    /* margin: 10px; */
+    float: right;
+    transform-origin: top right;  
+    transform: rotate(0deg) ; 
+}
+.subdiv3{
+    transition-property: transform,background-color;
+    transition-duration: 2s;
+    background-color: green;
+    width: 100px;
+    height: 100px;
+    /* margin: 10px; */
+    float: left;
+    transform-origin: bottom left;  
+    transform: rotate(0deg) ; 
+}
+.subdiv4{
+    transition-property: transform,background-color;
+    transition-duration: 2s;
+    background-color: purple;
+    width: 100px;
+    height: 100px;
+    /* margin: 10px; */
+    float: right;
+    transform-origin: bottom right;  
+    transform: rotate(0deg) ; 
+}
+.main-div:hover .subdiv1{
+    /* background-color: blue; */
+    transform-origin: top left;  
+    transform: rotate(90deg) ; 
+    /* transform:translateY(60px) rotate(90deg) ; */
+    /* translateX(400px); */
+}
+.main-div:hover .subdiv2{
+    /* background-color: blue; */
+    transform-origin: top right;  
+    transform: rotate(-90deg) ; 
+    /* transform:translateY(60px) rotate(90deg) ; */
+    /* translateX(400px); */
+}
+.main-div:hover .subdiv3{
+    /* background-color: blue; */
+    transform-origin: bottom left;  
+    transform: rotate(-90deg) ; 
+    /* transform:translateY(60px) rotate(90deg) ; */
+    /* translateX(400px); */
+}
+.main-div:hover .subdiv4{
+    /* background-color: blue; */
+    transform-origin: bottom right;  
+    transform: rotate(90deg) ; 
+    /* transform:translateY(60px) rotate(90deg) ; */
+    /* translateX(400px); */
+}
