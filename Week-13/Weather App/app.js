@@ -23,6 +23,8 @@ const server = http.createServer(function (req, res) {
       res.writeHead(200);
       res.write(responsestr);
       res.end();
+    }).catch((error) => {
+      console.log(`API call to get weather data by city name failed:${error}`);
     });
   }
   //API call to get weather data by city Id
@@ -44,9 +46,12 @@ const server = http.createServer(function (req, res) {
       res.writeHead(200);
       res.write(responsestr);
       res.end();
+    }).catch((error) => {
+      console.log(`API call to get weather data by city Id failed:${error}`);
+      
     });
   }
-  //API call to get weather data by city Id
+  //API call to get weather data of multiple cities
   if (req.url === "/all") {
     let url = `http://api.openweathermap.org/data/2.5/group?id=2643741,2644688,2633352,2654675,2988507,
       2990969,2911298,2925535,2950159,3120501,3128760,5128581,4140963,4930956,5106834,5391959,
@@ -57,9 +62,13 @@ const server = http.createServer(function (req, res) {
       res.writeHead(200);
       res.write(responsestr);
       res.end();
+    }).catch((error) => {
+      console.log(`API call to get weather data of multiple cities failed:${error}`);
+
     });
   }
 
+  // Api should return the data in pagination.
   // Set up the parameters for pagination
   const pageSize = 1;
   const pageNum = 10;
@@ -81,6 +90,9 @@ const server = http.createServer(function (req, res) {
         res.writeHead(200);
         res.write(responsestr);
         res.end();
+      }).catch((error) => {
+        console.log(`Api should return the data in pagination failed:${error}`);
+
       });
   }
 
@@ -114,13 +126,14 @@ const server = http.createServer(function (req, res) {
           res.end();
         })
         .catch((error) => {
-          console.error(error);
+          console.log(`Api which returns X days should be decided by the user failed:${error}`);
+
         });
     }
   }
   // Filter the data by any particular city, any particular date
   if (req.url === "/forecastbydatecity") {
-    getForecast(10, "2023-03-20", "London"); // Get the 10-day forecast starting from March 20, 2023 of london
+    getForecast(10,"2023-03-20", "London"); // Get the 10-day forecast starting from March 20, 2023 of london
     function getForecast(numDays, startDate, city) {
       const url = `${FORECAST_URL}?q=${city}&appid=${API_KEY}&units=metric`;
       axios
@@ -157,7 +170,8 @@ const server = http.createServer(function (req, res) {
           res.end();
         })
         .catch((error) => {
-          console.error(error);
+          console.log(`Api which returns the data by any particular city, any particular date failed:${error}`);
+
         });
     }
   }
